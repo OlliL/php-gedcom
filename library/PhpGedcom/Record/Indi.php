@@ -216,7 +216,7 @@ class Indi extends Record implements Noteable, Objectable, Sourceable
      */
     public function addAttr(Indi\Attr $attr)
     {
-        $this->attr[$attr->getType()] = $attr;
+        $this->attr[$attr->getType()][] = $attr;
         return $this;
     }
 
