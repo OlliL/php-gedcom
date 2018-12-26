@@ -44,6 +44,8 @@ class Writer {
 			$output .= Fam::convert( $fam, $format );
 		}
 
+		$output.='0 TRLR';
+
 		return $output;
 	}
 }

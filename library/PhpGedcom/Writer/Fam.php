@@ -40,7 +40,7 @@ class Fam extends AbstractWrite {
 		}
 
 		foreach ( $fam->getChil() as $chil ) {
-			parent::addGedcomIfNotNull( $output, $level, "CHILD",  '@' . $chil . '@' );
+			parent::addGedcomIfNotNull( $output, $level, "CHIL",  '@' . $chil . '@' );
 		}
 
 		return $output;
