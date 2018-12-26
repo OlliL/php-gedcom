@@ -32,15 +32,17 @@ class Fam extends AbstractWrite {
 
 		parent::addGedcomEmptyTag( $output, $level, parent::getCurrentTagName(), '@' . $fam->getId() . '@' );
 		$level ++;
-		parent::addGedcomIfNotNull( $output, $level, "HUSB", '@' . $fam->getHusb(). '@' );
-		parent::addGedcomIfNotNull( $output, $level, "WIFE", '@' . $fam->getWife(). '@' );
+		if ($fam->getHusb() != null)
+			parent::addGedcomIfNotNull( $output, $level, "HUSB", '@' . $fam->getHusb() . '@' );
+		if ($fam->getWife() != null)
+			parent::addGedcomIfNotNull( $output, $level, "WIFE", '@' . $fam->getWife() . '@' );
 
 		foreach ( $fam->getAllEven() as $even ) {
 			$output .= Even::convert( $even, $format, $level );
 		}
 
 		foreach ( $fam->getChil() as $chil ) {
-			parent::addGedcomIfNotNull( $output, $level, "CHIL",  '@' . $chil . '@' );
+			parent::addGedcomIfNotNull( $output, $level, "CHIL", '@' . $chil . '@' );
 		}
 
 		return $output;
