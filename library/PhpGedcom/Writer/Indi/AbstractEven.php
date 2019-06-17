@@ -52,6 +52,12 @@ abstract class AbstractEven extends AbstractWrite {
 
 		parent::addGedcomIfNotNull( $output, $level, "AGNC", $even->getAgnc() );
 
+		// Only basic SOUR support yet.....
+		if($even->getSour() != null) {
+			foreach ($even->getSour() as $sour) {
+				parent::addGedcomIfNotNull( $output, $level, "SOUR", $sour->getSour() );
+			}
+		}
 		// REF
 		// OBJE
 		// SOUR
